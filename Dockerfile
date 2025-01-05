@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM ubuntu:22.04
 
 ENV HOME=/root \
     DEBIAN_FRONTEND=noninteractive \
@@ -18,7 +18,7 @@ RUN apt-get install -y apt-utils
 # Install japanese language packs(optional)
 RUN apt-get install -y \
       language-pack-ja-base language-pack-ja \
-      ibus-anthy \
+      ibus-kkc \
       fonts-takao \
       && \
     echo ja_JP.UTF-8 UTF-8 >> /etc/locale.gen && \
@@ -30,6 +30,7 @@ RUN apt-get install -y \
       xvfb \
       xfce4 \
       x11vnc \
+      dbus-x11 \
       && \
     # Install utilities(optional).
     apt-get install -y \
